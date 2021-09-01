@@ -6339,7 +6339,7 @@ const main = async () => {
     // console.info('pull_request: ', context.payload.pull_request);
     // console.info('...context: ', ...context);
     // console.info('...context.repo: ', ...context.repo);
-    console.info('number: ', number);
+    // console.info('number: ', number);
     // core.info(github.context);
     // console.info(octokit)
     // core.info(sourceBranch);
@@ -6360,7 +6360,7 @@ const main = async () => {
     // })
 
     await octokit.rest.pulls.createReview({
-        // ...context.repo,
+        ...context.repo,
         pull_number: number,
         event: 'APPROVE'
     });
