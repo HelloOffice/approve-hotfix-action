@@ -7,10 +7,11 @@ const main = async () => {
     const token = core.getInput('repo-token');
     const octokit = getOctokit(token);
 
-    const number = context.pull_request.number;
 
     // console.info(github)
     console.info('full context: ', context);
+    console.info('pull_requestg: ', context.pull_request);
+    const number = context.pull_request.number;
     // console.info('...context: ', ...context);
     // console.info('...context.repo: ', ...context.repo);
     console.info('number: ', context.pull_request.number);
@@ -35,7 +36,7 @@ const main = async () => {
 
     await octokit.pulls.createReview({
         // ...context.repo,
-        pull_number: number,
+        // pull_number: number,
         event: 'APPROVE'
     });
 
