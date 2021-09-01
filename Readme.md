@@ -8,10 +8,6 @@ A GitHub action for approving hotfix pull requests.
 
 **Required** An auth token for the repository.
 
-### `source-branch`
-
-**Required** Pull Request source branch name.
-
 ## Example Usage
 
 ```yaml
@@ -21,7 +17,6 @@ steps:
     uses: HelloOffice/approve-hotfix-action@v1
     with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          source-branch: ${{ github.head_ref }}
 ```
 
 # Build and Deploy

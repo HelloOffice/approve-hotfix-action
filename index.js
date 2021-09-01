@@ -1,24 +1,43 @@
 'use strict'
 
 const core = require('@actions/core');
-const github = require('@actions/github');
+const { getOctokit, context } = require('@actions/github')
 
 const main = async () => {
     const token = core.getInput('repo-token');
-    const sourceBranch = core.getInput('source-branch');
+    const octokit = getOctokit(token);
+    const number = context.payload.pull_request.number;
 
-    const octokit = github.getOctokit(token);
-
-    core.info(github.context);
-    core.info(sourceBranch);
-
+    // console.info(github)
+    // console.info('full context number: ', context.payload.number);
+    // console.info('pull_request: ', context.payload.pull_request);
+    // console.info('...context: ', ...context);
+    // console.info('...context.repo: ', ...context.repo);
+    // console.info('number: ', number);
+    // core.info(github.context);
+    // console.info(octokit)
+    // core.info(sourceBranch);
 
     core.info('Approving Hotfix Pull Request... ⏱');
 
-    // await octokit.pulls.createReview({
-    //     ...context.repo,
-    //     event: 'APPROVE'
+    // const prList = await octokit.rest.pulls.list({
+    //     ...context.repo
     // });
+
+    // console.info(prList);
+    // core.info(prList);
+
+    // prList.data.forEach((pr) => {
+    //     console.info('head: ', pr.head);
+    //     console.info('base: ', pr.base);
+    //     console.info('number: ', pr.number);
+    // })
+
+    await octokit.rest.pulls.createReview({
+        ...context.repo,
+        pull_number: number,
+        event: 'APPROVE'
+    });
 
     core.info('Hotfix Pull Request approved ✔');
 };
