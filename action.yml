@@ -1,0 +1,12 @@
+name: "Approve Hotfix Action"
+description: "A GitHub action for approving hotfix pull requests."
+inputs:
+  repo-token:
+    description: "Repo auth token."
+    required: true
+  source-branch:
+    description: "Pull Request source branch name."
+    required: true
+runs:
+  using: "node12"
+  main: "dist/index.js"

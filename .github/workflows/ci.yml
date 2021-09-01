@@ -1,0 +1,16 @@
+name: CI
+on:
+  pull_request:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Approve Hotfix Pull Request
+        if: startsWith(github.head_ref, 'hotfix/')
+        uses: ./
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          source-branch: ${{ github.head_ref }}
