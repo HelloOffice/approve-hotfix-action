@@ -2,7 +2,7 @@
   "name": "approve-hotfix-action",
   "version": "1.0.0",
   "description": "A GitHub action for approving hotfix pull requests.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "ncc build index.js"
   },
