@@ -6336,7 +6336,7 @@ const main = async () => {
     const octokit = getOctokit(token);
 
     // console.info(github)
-    console.info(github.context);
+    console.info(context);
     // core.info(github.context);
     // console.info(octokit)
     // core.info(sourceBranch);
