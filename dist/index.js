@@ -6327,13 +6327,13 @@ var __webpack_exports__ = {};
 
 
 const core = __nccwpck_require__(186);
-const { GitHub, context } = __nccwpck_require__(438)
+const { getOctokit, context } = __nccwpck_require__(438)
 
 const main = async () => {
     const token = core.getInput('repo-token');
     const sourceBranch = core.getInput('source-branch');
 
-    const octokit = new GitHub(token);
+    const octokit = getOctokit(token);
 
     // console.info(github)
     // console.info(github.context)
