@@ -27,7 +27,7 @@ const main = async () => {
     prList.data.forEach((pr) => {
         console.info('head: ', pr.head);
         console.info('base: ', pr.base);
-        console.info('number: ', pr.number);d
+        console.info('number: ', pr.number);
     })
 
     // await octokit.pulls.createReview({
