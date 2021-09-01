@@ -12,7 +12,6 @@ const main = async () => {
     core.info(github.context);
     core.info(sourceBranch);
 
-
     core.info('Approving Hotfix Pull Request... ⏱');
 
     // await octokit.pulls.createReview({
