@@ -1,7 +1,7 @@
 'use strict'
 
 const core = require('@actions/core');
-const github = require('@actions/github');
+const { github, context } = require('@actions/github')
 
 const main = async () => {
     const token = core.getInput('repo-token');
