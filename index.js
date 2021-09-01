@@ -7,7 +7,7 @@ const main = async () => {
     const token = core.getInput('repo-token');
     const sourceBranch = core.getInput('source-branch');
 
-    const octokit = new GitHub(token);
+    const octokit = github.getOctokit(token);
 
     // console.info(github)
     // console.info(github.context)

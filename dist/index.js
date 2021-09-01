@@ -6327,7 +6327,7 @@ var __webpack_exports__ = {};
 
 
 const core = __nccwpck_require__(186);
-const github = __nccwpck_require__(438);
+const { github, context } = __nccwpck_require__(438)
 
 const main = async () => {
     const token = core.getInput('repo-token');
