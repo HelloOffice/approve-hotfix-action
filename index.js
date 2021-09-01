@@ -10,7 +10,7 @@ const main = async () => {
     const octokit = getOctokit(token);
 
     // console.info(github)
-    // console.info(github.context)
+    console.info(github.context);
     // core.info(github.context);
     // console.info(octokit)
     // core.info(sourceBranch);
@@ -22,7 +22,13 @@ const main = async () => {
     });
 
     console.info(prList);
-    core.info(prList);
+    // core.info(prList);
+
+    prList.data.forEach((pr) => {
+        console.info('head: ', pr.head);
+        console.info('base: ', pr.base);
+        console.info('number: ', pr.number);d
+    })
 
     // await octokit.pulls.createReview({
     //     ...context.repo,
