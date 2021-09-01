@@ -6336,8 +6336,8 @@ const main = async () => {
 
     // console.info(github)
     console.info('full context: ', context);
-    console.info('pull_requestg: ', context.pull_request);
-    const number = context.pull_request.number;
+    console.info('pull_request: ', context.payload.pull_request);
+    const number = context.payload.pull_request.number;
     // console.info('...context: ', ...context);
     // console.info('...context.repo: ', ...context.repo);
     console.info('number: ', context.pull_request.number);
