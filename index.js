@@ -1,13 +1,13 @@
 'use strict'
 
 const core = require('@actions/core');
-const { github, context } = require('@actions/github')
+const { GitHub, context } = require('@actions/github')
 
 const main = async () => {
     const token = core.getInput('repo-token');
     const sourceBranch = core.getInput('source-branch');
 
-    const octokit = github.getOctokit(token);
+    const octokit = new GitHub(token);
 
     // console.info(github)
     // console.info(github.context)
