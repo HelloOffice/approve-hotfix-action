@@ -6335,10 +6335,20 @@ const main = async () => {
 
     const octokit = github.getOctokit(token);
 
-    core.info(github.context);
-    core.info(sourceBranch);
+    // console.info(github)
+    // console.info(github.context)
+    // core.info(github.context);
+    // console.info(octokit)
+    // core.info(sourceBranch);
 
     core.info('Approving Hotfix Pull Request... ⏱');
+
+    const prList = await octokit.rest.pulls.list({
+        ...context.repo
+    });
+
+    console.info(prList);
+    core.info(prList);
 
     // await octokit.pulls.createReview({
     //     ...context.repo,
