@@ -1,0 +1,32 @@
+{
+  "name": "approve-hotfix-action",
+  "version": "1.0.0",
+  "description": "A GitHub action for approving hotfix pull requests.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelloOffice/approve-hotfix-action.git"
+  },
+  "keywords": [
+    "hotfix",
+    "action"
+  ],
+  "author": "oparamo",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/HelloOffice/approve-hotfix-action/issues"
+  },
+  "homepage": "https://github.com/HelloOffice/approve-hotfix-action#readme",
+  "private": true,
+  "dependencies": {
+    "@actions/core": "1.5.0",
+    "@actions/github": "5.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "0.30.0",
+    "yarn": "1.12.11"
+  }
+}
