@@ -7,10 +7,12 @@ const main = async () => {
     const token = core.getInput('repo-token');
     const octokit = getOctokit(token);
 
+    const number = context.pull_request.number;
+
     // console.info(github)
     console.info('full context: ', context);
-    console.info('...context: ', ...context);
-    console.info('...context.repo: ', ...context.repo);
+    // console.info('...context: ', ...context);
+    // console.info('...context.repo: ', ...context.repo);
     console.info('number: ', context.pull_request.number);
     // core.info(github.context);
     // console.info(octokit)
@@ -31,10 +33,11 @@ const main = async () => {
     //     console.info('number: ', pr.number);
     // })
 
-    // await octokit.pulls.createReview({
-    //     ...context.repo,
-    //     event: 'APPROVE'
-    // });
+    await octokit.pulls.createReview({
+        // ...context.repo,
+        // pull_number: number,
+        event: 'APPROVE'
+    });
 
     core.info('Hotfix Pull Request approved ✔');
 };
