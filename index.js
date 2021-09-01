@@ -35,7 +35,7 @@ const main = async () => {
 
     await octokit.pulls.createReview({
         // ...context.repo,
-        // pull_number: number,
+        pull_number: number,
         event: 'APPROVE'
     });
 
