@@ -6331,30 +6331,31 @@ const { getOctokit, context } = __nccwpck_require__(438)
 
 const main = async () => {
     const token = core.getInput('repo-token');
-    const sourceBranch = core.getInput('source-branch');
-
     const octokit = getOctokit(token);
 
     // console.info(github)
-    console.info(context);
+    console.info('full context: ', context);
+    console.info('...context: ', ...context);
+    console.info('...context.repo: ', ...context.repo);
+    console.info('number: ', context.pull_request.number);
     // core.info(github.context);
     // console.info(octokit)
     // core.info(sourceBranch);
 
     core.info('Approving Hotfix Pull Request... ⏱');
 
-    const prList = await octokit.rest.pulls.list({
-        ...context.repo
-    });
+    // const prList = await octokit.rest.pulls.list({
+    //     ...context.repo
+    // });
 
-    console.info(prList);
+    // console.info(prList);
     // core.info(prList);
 
-    prList.data.forEach((pr) => {
-        console.info('head: ', pr.head);
-        console.info('base: ', pr.base);
-        console.info('number: ', pr.number);
-    })
+    // prList.data.forEach((pr) => {
+    //     console.info('head: ', pr.head);
+    //     console.info('base: ', pr.base);
+    //     console.info('number: ', pr.number);
+    // })
 
     // await octokit.pulls.createReview({
     //     ...context.repo,
