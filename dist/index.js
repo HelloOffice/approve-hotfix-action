@@ -6332,15 +6332,14 @@ const { getOctokit, context } = __nccwpck_require__(438)
 const main = async () => {
     const token = core.getInput('repo-token');
     const octokit = getOctokit(token);
-
+    const number = context.payload.pull_request.number;
 
     // console.info(github)
-    console.info('full context number: ', context.payload.number);
+    // console.info('full context number: ', context.payload.number);
     // console.info('pull_request: ', context.payload.pull_request);
-    const number = context.payload.pull_request.number;
     // console.info('...context: ', ...context);
     // console.info('...context.repo: ', ...context.repo);
-    console.info('number: ', context.payload.pull_request.number);
+    // console.info('number: ', number);
     // core.info(github.context);
     // console.info(octokit)
     // core.info(sourceBranch);
@@ -6350,6 +6349,21 @@ const main = async () => {
     // const prList = await octokit.rest.pulls.list({
     //     ...context.repo
     // });
+
+    // console.info(prList);
+    // core.info(prList);
+
+    // prList.data.forEach((pr) => {
+    //     console.info('head: ', pr.head);
+    //     console.info('base: ', pr.base);
+    //     console.info('number: ', pr.number);
+    // })
+
+    await octokit.rest.pulls.createReview({
+        ...context.repo,
+        pull_number: number,
+        event: 'APPROVE'
+    });
 
     // console.info(prList);
     // core.info(prList);
