@@ -1,5 +1,8 @@
 name: "Approve Hotfix Action"
 description: "A GitHub action for approving hotfix pull requests."
+branding:
+  icon: "check-circle"
+  color: "white"
 inputs:
   repo-token:
     description: "Repo auth token."
